@@ -11,9 +11,11 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-
   renderSquare(i) {
     return (
+      /*
+      squareコンポーネントにprops = {value: this.props.squares[i] onClick: this.props.onClick} を渡して呼んでいる
+      */
       <Square
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
@@ -44,6 +46,7 @@ class Board extends React.Component {
   }
 }
 
+//top level componet
 class Game extends React.Component {
   constructor() {
     super();
@@ -53,10 +56,12 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
+      location: [0, 0],
     };
   }
 
   handleClick(i) {
+
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -65,12 +70,15 @@ class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
+
     this.setState({
+      // handleClick can push a new entry onto the stack
       history: history.concat([{
         squares: squares,
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
+
     });
   }
 
@@ -80,7 +88,7 @@ class Game extends React.Component {
       xIsNext: (step % 2) === 0,
     });
   }
-
+// Game's render should look at the most recent history entry
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -90,7 +98,9 @@ class Game extends React.Component {
       const desc = move ?
       'Move #' + move :
       'Game start';
+
     return (
+      console.log(move),
       <li key={move}>
         <a href='#' onClick={() => this.jumpTo(move)}>{desc}</a>
       </li>
