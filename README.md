@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The code is written with React.js and ES6.
 
 ### prerequisite
-1. installed Golang
+1. installed Docker in your local machine
 2. somewhat familiarity with Docker
 
 First of all, you can pull this code.
