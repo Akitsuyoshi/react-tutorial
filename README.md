@@ -3,15 +3,16 @@
 This is a React tutorial, ['tic tac toe game']().
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+
 The code is written with React.js and ES6.
 
-### prerequisite
+### Prerequisite
 1. installed Docker in your local machine
 2. somewhat familiarity with Docker
 
 First of all, you can pull this code.
 ```
-$ git https://github.com/Akitsuyoshi/react-tutorial
+$ git clone https://github.com/Akitsuyoshi/react-tutorial
 ```
 Since it is implemented Dockerfile in here, I'd like to use container instead of local environment.
 
